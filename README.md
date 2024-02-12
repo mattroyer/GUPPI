@@ -1,6 +1,6 @@
 # Discord Bot with LLM Integration
 
-This Discord bot leverages an LLM (e.g., GPT-3.5-turbo) to engage in conversations and uses a SQLite database for basic memory management. It's designed to enhance interactions by storing, retrieving, and referencing past conversations.
+This Discord bot leverages an LLM (e.g., GPT-3.5-turbo) to engage in conversations.
 
 ## Features
 
