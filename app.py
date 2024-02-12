@@ -5,9 +5,9 @@ import os
 from dotenv import load_dotenv
 from llm_wrapper import LLMWrapper
 
-load_dotenv()
+load_dotenv(override=True)
 
-TOKEN = os.getenv("TOKEN")
+TOKEN = os.getenv("DISCORD_TOKEN")
 
 intents = discord.Intents.default()
 intents.messages = True
