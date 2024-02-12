@@ -34,6 +34,12 @@ async def ask_guppi(message):
       break
   return reply
 
+async def send_chunked_message(channel, text, chunk_size=1950):
+  for start in range(0, len(text), chunk_size):
+    end = start + chunk_size
+    chunk = text[start:end]
+    await channel.send(chunk)
+
 @client.event
 async def on_ready():
   print(f'Logged on as {client.user}')
@@ -47,8 +53,8 @@ async def on_message(message):
     try:
       reply = await ask_guppi(message.content)
       if reply:
-        await message.channel.send(reply)
+        await send_chunked_message(message.channel, reply)
     except Exception as e:
-      await message.channel.send(e)
+      await send_chunked_message(message.channel, e)
 
 client.run(TOKEN)
