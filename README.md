@@ -1,6 +1,6 @@
-# Discord Bot with LLM Integration
+# GUPPI: Genius Utility for Profound Personal Interactions
 
-This Discord bot leverages an LLM (e.g., GPT-3.5-turbo) to engage in conversations.
+GUPPI is a Discord Bot with LLM Integration. The bot leverages an LLM (e.g., GPT-3.5-turbo) to engage in conversations. The name is inspired by the loveable Bobiverse series. I know it's common to use Jarvis as your assistant, but GUPPI is more fun to say.
 
 ## Features
 
