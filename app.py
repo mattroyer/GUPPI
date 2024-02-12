@@ -34,10 +34,18 @@ async def ask_guppi(message):
       break
   return reply
 
-async def send_chunked_message(channel, text, chunk_size=1950):
-  for start in range(0, len(text), chunk_size):
-    end = start + chunk_size
-    chunk = text[start:end]
+async def send_chunked_message(channel, text, chunk_size=2000):
+  punctuation = ('.', '!', '?', ';', ':')
+  chunks = []
+  while len(text) > chunk_size:
+    split_at = max([text.rfind(char, 0, chunk_size) for char in punctuation])
+    split_at = split_at if split_at != -1 else chunk_size
+    split_at += 1
+    chunks.append(text[:split_at])
+    text = text[split_at:].strip()
+  chunks.append(text)
+
+  for chunk in chunks:
     await channel.send(chunk)
 
 @client.event
