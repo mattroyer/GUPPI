@@ -20,10 +20,10 @@ class LLMWrapper:
     if self.llm_type == 'openai':
       completion = self.llm_client.chat.completions.create(model=self.model_name, messages=messages, stream=stream)
       for chunk in completion:
-        choice = chunk.choices[0].delta
-        content = choice.content
+        choice = chunk.choices[0]
+        content = choice.delta.content
         role = 'assistant'
-        done = chunk.choices[0].finish_reason == 'stop'
+        done = choice.finish_reason == 'stop'
         yield {
           'content': content,
           'role': role,
