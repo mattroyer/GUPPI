@@ -51,6 +51,7 @@ async def send_chunked_message(channel, text, chunk_size=1980):
 @client.event
 async def on_ready():
   print(f'Logged on as {client.user}')
+  await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="the world pass by"))
 
 @client.event
 async def on_message(message):
