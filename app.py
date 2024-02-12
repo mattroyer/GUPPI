@@ -34,7 +34,7 @@ async def ask_guppi(message):
       break
   return reply
 
-async def send_chunked_message(channel, text, chunk_size=2000):
+async def send_chunked_message(channel, text, chunk_size=1980):
   punctuation = ('.', '!', '?', ';', ':')
   chunks = []
   while len(text) > chunk_size:
